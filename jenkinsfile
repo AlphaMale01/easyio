@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    tools {nodejs "nodejs"}
+    stages{
+          stage('Git') {
+      steps {
+        sh "echo Git clone begins"
+        sh "echo cloning into jenkins"
+        git 'https://github.com/AlphaMale01/easyio.git'
+      }
+    }
+     
+    stage('Build') {
+      steps {
+        sh 'npm install'
+      }
+    }
+    
+}
+}
